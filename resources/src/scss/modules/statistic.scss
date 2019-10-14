@@ -1,0 +1,805 @@
+$borderColor: #000;
+$borderValue: 1px solid #c7d1d4;
+$titleColor: rgb( 5, 51, 57 );
+
+.statistic-container {
+  margin: 15px 0;
+  width: 100%;
+
+  &__main-title {
+    font-size: 2.5em;
+    font-family: $fontBold;
+    color: $titleColor;
+    font-weight: bold;
+    width: inherit;
+    text-transform: uppercase;
+    border-bottom: $borderValue;
+  }
+}
+
+.statistic-info {
+
+  @include container-padding();
+
+  border-left: $borderValue;
+  &:nth-child(1), &[its-border] {
+    border: none;
+  }
+
+  &__container {
+    height: 100%;
+    padding: 10px;
+  }
+
+  &__title {
+    font-size: 1em;
+    font-family: $font;
+    color: rgb( 121, 121, 121 );
+  }
+
+  &__statistic {
+    font-size: 2em;
+    font-family: $fontBold;
+    color: $titleColor;
+    font-weight: bold;
+  }
+
+  &__buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.top-posts {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    justify-content: center;
+  }
+
+  &__title {
+    padding: 0 0 20px 0;
+  }
+}
+
+.top-post {
+  width: 30%;
+  position: relative;
+
+  &:hover &__shadow{
+    display: block;
+  }
+
+  &__shadow {
+    text-decoration: none;
+    background-color: rgba(0,0,0,.3);
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__list {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__item {
+    display: inline-flex;
+
+    &:first-child {
+      margin-right: 15px;
+    }
+  }
+
+  &__logo {
+    color: white !important;
+    width: 24px;
+    height: 24px;
+    background-size: 100%;
+    margin-right: 5px;
+  }
+
+  &__alt {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+  }
+}
+
+.followers {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: $font;
+  list-style: none;
+  font-size: 1.2em;
+  border-bottom: 1px solid grey;
+
+  &__container {
+    display: flex;
+  }
+
+  &__count {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    width: 2em;
+    text-align: center;
+    background: #2fbecd;
+    color: white;
+
+  }
+
+  &__pic {
+    margin: 0 15px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+  }
+
+  &__follower {
+    color: #2fbecd;
+    align-self: center;
+  }
+
+}
+
+.graph {
+  position: relative;
+  @include container-padding();
+
+  &__title-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.only-graph {
+  padding: 0;
+}
+
+.graph-container {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+  padding: 20px;
+
+  &__title-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__title {
+    position: relative;
+    z-index: 2;
+    text-transform: capitalize;
+  }
+
+  &__chart {
+
+  }
+
+  @include box-shadow();
+}
+
+.statistic-loading {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  &__title {
+    margin-top: 10px;
+  }
+}
+
+.its-border {
+  border-bottom: $borderValue;
+}
+
+.period-container {
+  @include container-padding();
+  &__buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.full-container {
+  padding: 0 !important;
+  max-width: 100% !important;
+  flex-basis: 100% !important;
+}
+
+.loader {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: white;
+  opacity: 0.8;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: 1.2em $font;
+  color: #333;
+
+  &--is_updating {
+    padding: 40px;
+    text-align: center;
+  }
+}
+
+.posts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__post {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    margin: 0 10px 30px 0;
+    width: 31%;
+    position: relative;
+    &:nth-child(3n+1) {
+      margin: 0 10px 30px 0;
+    }
+    &:nth-child(3n+3) {
+      margin: 0 0 31px 0;
+    }
+  }
+  &__full-image {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+  }
+  &__image {
+    width: 100%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &__list {
+    display: flex;
+  }
+  &__item {
+    display: flex;
+    padding-right: 10px;
+    &:last-child {
+      padding: 0;
+    }
+  }
+  &__icon {
+    font-size: 1.2em;
+    padding-right: 3px;
+    color: grey !important;
+  }
+  &__icon-orange {
+    font-size: 1.2em;
+    padding-right: 3px;
+    color: orange !important;
+  }
+  &__icon-red {
+    font-size: 1.2em;
+    padding-right: 3px;
+    color: red !important;
+  }
+}
+.header {
+  display: flex;
+  &__title {
+    margin: 5px 0 0 0;
+  }
+  &__options {
+    max-width: 40%;
+    padding: 0;
+    margin: 5px 0px 0 10px;
+  }
+  &__btn-list {
+    max-width: 45%;
+    width: 100%;
+    text-align: center;
+    align-items: baseline;
+    justify-content: flex-end;
+    display: flex;
+  }
+  &__block-option {
+    display: flex;
+    max-width: 55%;
+    width: 100%;
+  }
+  &__btn {
+    margin: 0px -1px 0px 0;
+    text-transform: initial;
+    padding: 0;
+    border: 1px solid #135aa0;
+    background: transparent!important;
+    box-shadow: none !important;
+    flex: 1;
+  }
+  &__btn-active {
+    color: #fff !important;
+    background-color: #1871c9 !important;
+  }
+}
+.posts-loading {
+  font-family: $font;
+  font-size: 1.5em;
+  text-align: center;
+  margin: 50px;
+}
+
+.dialog {
+  border-radius: 10px;
+}
+
+.info-graph .card {
+
+  &__title {
+    color: white;
+    padding: 10px 0;
+    background-color: black;
+    background-image: url("../assets/header_info.png");
+    background-size: contain;
+  }
+
+  &__title-text {
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.card .menu {
+  position: absolute;
+  right: 10px;
+
+  button.btn.btn--icon.btn--small {
+    border-radius: 50%;
+    background-color: #02abae;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 319px) {
+  .statistic-container__main-title {
+    font-size: 1.5em;
+  }
+  .header {
+    flex-direction: column;
+    &__block-option, &__title {
+      flex-direction: column;
+      max-width: 100%;
+    }
+    &__options {
+      max-width: 100%;
+      padding: 18px 0 0;
+      margin: 0;
+    }
+    &__btn-list {
+      display: flex;
+      justify-content: center;
+      max-width: 100%;
+      margin: 0 0 20px 0;
+    }
+    &__btn {
+      min-width: 44px;
+    }
+  }
+  .posts {
+    &__post {
+      width: 100%;
+      margin: 0 0 20px 0 !important;
+    }
+    &__full-image {
+      height: unset;
+    }
+    &__list {
+      padding: 0;
+      flex-wrap: wrap;
+    }
+  }
+
+  .statistic-info {
+    @include container-boundary();
+  }
+  .period-container {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+  .its-border {
+    padding-bottom: 20px;
+  }
+  .statistic-info__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .statistic-info__statistic {
+    font-size: 2em;
+  }
+  .statistic-info__title {
+    padding: 0 10px 0 0;
+    font-size: 0.8em;
+  }
+  .graph {
+    padding: 0;
+  }
+  .for-list-sub-unsub {
+    margin-bottom: 20px;
+  }
+
+  .followers {
+    &__container {
+      width: calc( 100% - 50px );
+    }
+    &__count {
+      padding: 0 12px;
+    }
+    &__follower {
+      padding-left: 5px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow:hidden;
+    }
+    &__pic {
+      display: none;
+    }
+  }
+  .select-accounts__img {
+    display: none;
+  }
+  .graph {
+    &:first-child, &:last-child {
+      padding: 0;
+    }
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    &__block-option, &__title {
+      flex-direction: column;
+      max-width: 100%;
+    }
+    &__options {
+      max-width: 100%;
+      padding: 18px 0 0;
+      margin: 0;
+    }
+    &__btn-list {
+      display: flex;
+      justify-content: center;
+      max-width: 100%;
+      margin: 0 0 20px 0;
+    }
+    &__btn {
+      min-width: 44px;
+    }
+  }
+  .posts {
+    &__post {
+      width: 100%;
+      margin: 0 0 20px 0 !important;
+    }
+    &__full-image {
+      height: unset;
+    }
+    &__list {
+      padding: 0;
+    }
+  }
+  .statistic-info {
+    @include container-boundary();
+  }
+  .its-border {
+    padding-bottom: 20px;
+    justify-content: center;
+  }
+  .statistic-info__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .statistic-info__statistic {
+    font-size: 1.5em;
+  }
+  .statistic-info__title {
+    padding: 0 10px 0 0;
+    font-size: 1em;
+  }
+  .period-container, .graph {
+    &:first-child {
+      padding: 0;
+    }
+    max-width: 100% !important;
+    padding: 0;
+  }
+  .followers {
+    &__container {
+      width: calc( 100% - 50px );
+    }
+    &__count {
+      padding: 0 12px;
+    }
+    &__follower {
+      padding-left: 5px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow:hidden;
+    }
+    &__pic {
+      display: none;
+    }
+  }
+  .graph {
+    &:first-child, &:last-child {
+      padding: 0;
+    }
+  }
+
+  .card__title {
+    background-size: cover !important;
+    background-position-x: right;
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .header {
+    flex-direction: column;
+    &__block-option, &__title {
+      flex-direction: column;
+      max-width: 100%;
+    }
+    &__options {
+      max-width: 100%;
+      padding: 18px 0 0;
+      margin: 0;
+    }
+    &__btn-list {
+      display: flex;
+      justify-content: center;
+      max-width: 100%;
+      margin: 0 0 20px 0;
+    }
+    &__btn {
+      min-width: 44px;
+    }
+  }
+  .statistic-info {
+    max-width: 100% !important;
+    flex-basis: 100% !important;
+    padding: 0;
+    @include container-boundary();
+  }
+  .its-border {
+    padding-bottom: 20px;
+  }
+  .statistic-container {
+    justify-content: space-around;
+  }
+  .statistic-info__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1em;
+  }
+  .statistic-info__statistic {
+    font-size: 2em;
+  }
+  .period-container {
+    &:first-child, &:last-child {
+      padding: 0;
+    }
+    flex-basis: 50% !important;
+    max-width: 50% !important;
+  }
+  .followers {
+    &__container {
+      width: calc( 100% - 50px );
+    }
+    &__count {
+      padding: 0 12px;
+    }
+    &__follower {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow:hidden;
+      padding-left: 5px;
+    }
+    &__pic {
+      display: none;
+    }
+  }
+  .posts {
+    &__post {
+      width: 100%;
+      margin: 0 0 20px 0 !important;
+    }
+    &__full-image {
+      height: unset;
+    }
+    &__list {
+      padding: 0;
+      flex-wrap: wrap;
+    }
+  }
+
+  .card__title {
+    background-size: cover !important;
+    background-position-x: right;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .statistic-container__main-title {
+    font-size: 2em;
+  }
+  .statistic-info__statistic {
+    font-size: 2em;
+  }
+  .statistic-info__title {
+    font-size: 1.2em;
+  }
+  .followers {
+    &__container {
+      width: calc(100% - 50px);
+    }
+    &__count {
+      padding: 0 12px;
+    }
+    &__follower {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+  .period-container {
+    &:first-child, &:last-child {
+      padding: 0;
+    }
+    flex-basis: 50% !important;
+    max-width: 50% !important;
+  }
+  .its-border {
+    padding-bottom: 20px;
+  }
+  .header {
+    margin-bottom: 10px;
+    &__btn:nth-child(n+3) {
+      margin-top: -1px;
+      width: 88px;
+    }
+    &__options {
+      max-width: 57%;
+      padding: 0;
+      margin: 5px 0px 0 10px;
+    }
+    &__btn-list {
+      max-width: 45%;
+      width: 100%;
+      text-align: center;
+    }
+    &__btn {
+      max-width: 65px !important;
+      min-width: 40px;
+    }
+    &__block-option {
+      max-width: 60%;
+    }
+  }
+  .posts {
+    &__post {
+      margin: 0 10px 30px 0;
+    }
+  }
+}
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .period-container {
+    &:nth-child(-n + 2) {
+      max-width: 100%;
+      flex-basis: 30%;
+      margin-right: 10px;
+    }
+    &:nth-child(n+3) {
+      flex-basis: 15%;
+    }
+  }
+}
+@media (min-width: 805px) and (max-width: 1022px) {
+  .header {
+    margin-bottom: 10px;
+    &__btn:nth-child(n+3) {
+      margin-top: -1px;
+      width: 88px;
+    }
+    &__block-option {
+      max-width: 60%;
+    }
+    &__btn-list {
+      max-width: 40%;
+    }
+    &__options {
+      max-width: 55%;
+    }
+  }
+}
+@media (min-width: 1281px) {
+  .header {
+    &__block-option {
+      max-width: 60%;
+    }
+    &__btn-list {
+      max-width: 40%;
+    }
+    &__options {
+      max-width: 55%;
+    }
+  }
+}
+
+.pdf-render {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  display: none;
+
+  &__container {
+    //display: none;
+    width: 280px / 150px * 400px !important;
+    height: 150px / 280px * 400px !important;
+
+    & canvas {
+      //display: none;
+    }
+  }
+
+  &__image {
+    $size: 128px;
+    width: $size;
+    height: $size;
+    //border-radius: 50%;
+  }
+}

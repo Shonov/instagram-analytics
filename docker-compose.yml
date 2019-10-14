@@ -1,0 +1,36 @@
+version: '3'
+services:
+  php:
+    build: ./.docker/php
+    command: >
+       bash -c "cd /app &&
+        php artisan serve --host=0.0.0.0 --port=80"
+    ports:
+      - 8000:80
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres
+    restart: always
+    volumes:
+      - postgresql-volume:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+#  pgadmin:
+#      depends_on:
+#        - postgres
+#      image: fenglc/pgadmin4
+#      ports:
+#        - 5050:5050
+#      volumes:
+#        - ./pgadmin4:/root/.pgadmin
+
+volumes:
+  postgresql-volume:
+    driver: local

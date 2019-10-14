@@ -1,0 +1,128 @@
+.accounts-list {
+  &__title {
+    margin-top: 10px;
+  }
+
+  &__list {
+    margin-bottom: 20px;
+  }
+}
+
+.account-card {
+  margin: 20px 0;
+
+  $logoSize: 70px;
+  &__private-account {
+    text-align: center;
+    font-family: $fontBold;
+  }
+  &__title {
+    text-align: center;
+  }
+  &--add {
+    cursor: pointer;
+  }
+
+  &__container {
+    margin: 0 10px;
+    padding: 20px 15px;
+
+    height: 100%;
+    color: #000;
+
+    @include box-shadow();
+  }
+
+  &__add-container {
+    @extend .account-card__container;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    //box-shadow: 0px 2px 1px -1px rgba(51, 255, 59, 0.2), 0px 1px 1px 0px rgba(51, 255, 59, 0.14), 0px 1px 3px 0px rgba(51, 255, 59, 0.12);
+    background: linear-gradient(to top, rgb(0, 46, 82) 0%, rgb(51, 63, 91) 0%, rgb(42, 204, 198) 100%);
+    color: #fff;
+  }
+
+  &__add-icon {
+    color: #fff !important;
+  }
+
+  &__main-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  &__logo {
+
+    max-height: $logoSize;
+    max-width: $logoSize;
+    border-radius: 50%;
+  }
+
+  &__login {
+    margin-top: 10px;
+    font-family: $fontBold;
+    direction: ltr !important;
+  }
+
+  &__statistic-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__actions-container {
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-around;
+  }
+
+  & &__button {
+    border-radius: 50px;
+    padding: 0 20px;
+    background-color: #ce1e1e !important;
+  }
+}
+
+.account-card-statistic {
+  &__title {
+    font-family: $font;
+    text-transform: capitalize;
+  }
+
+  &__statistic {
+    text-align: center;
+    font-family: $fontBold;
+    font-size: 1.3em !important;
+  }
+}
+
+@media (min-width: 1281px) {
+  .account-card__statistic-container {
+    justify-content: space-evenly;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .account-card__button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,19 @@
+$font_path: '../assets/fonts/';
+
+@font-face {
+  font-family: 'AlergiaNormal';
+  src: url($font_path + 'AlergiaNormal.otf');
+}
+
+@font-face {
+  font-family: 'AlergiaNormalBold';
+  src: url($font_path + 'AlergiaNormalBold.otf');
+}
+
+
+@font-face {
+  font-family: 'Avenir LT Std 55 Roman';
+  font-style: normal;
+  font-weight: normal;
+  src: url($font_path + 'AvenirLTStd-Roman.woff') format('woff');
+}

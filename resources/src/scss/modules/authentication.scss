@@ -1,0 +1,161 @@
+.authentication-page {
+  background: url("../assets/background-for-login.png") no-repeat;
+  background-size: cover;
+
+  input {
+    outline: none;
+    font-family: $avenirFont;
+    color: rgba( 255, 255, 255, 0.341 );
+  }
+
+  input:-webkit-autofill {
+    box-shadow: inset 0 0 0 50px #11262e !important; /* Цвет фона */
+    -webkit-text-fill-color: #999 !important; /* цвет текста */
+    color: #999 !important; /* цвет текста */
+  }
+
+  .input-group--dirty {
+    .icon {
+      color: #fff !important;
+    }
+
+    input {
+      color: #fff !important;
+    }
+
+    &.input-group--focused {
+      .icon {
+        color: #2accc6 !important;
+      }
+    }
+    &.error--text {
+      .icon {
+        color: #ff5252 !important;
+      }
+      .input-group__details {
+        &:before {
+          background-color: #ff5252 !important;
+        }
+
+        &:after {
+          background-color: #ff5252 !important;
+        }
+      }
+    }
+  }
+
+  .input-group__details {
+    &:before {
+      background-color: #fff !important;
+    }
+
+    &:after {
+      background-color: #2accc6 !important;
+    }
+  }
+}
+
+.main-title {
+  font-size: 3em;
+  padding: 0 0 100px 0;
+  font-weight: bold;
+  font-family: $avenirFont, sans-serif;
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.authentication-form {
+  border-radius: 20px;
+  background-color: rgba(27, 42, 49, 0.58);
+  padding: 20px 50px;
+}
+
+.authentication {
+  $color: #d0e7ff;
+  $logoSize: 32px;
+
+  &__title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: 20px;
+    margin-bottom: 10px;
+  }
+
+  &__buttons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--last {
+      text-transform: initial;
+      text-decoration: underline;
+      margin-top: 10px;
+    }
+  }
+  &__input_lable {
+    color: rgba(255, 255, 255, 0.341);
+  }
+  &__select_input {
+    color: #2accc6;
+  }
+  &__select_button {
+    border-radius: 5px;
+    color: white !important;
+    background-color: rgb(42, 204, 198) !important;
+    text-transform: none;
+  }
+  &__select_page {
+    text-transform: none;
+    font-size: 1.1em;
+    font-family: $avenirFont;
+  }
+  &__logo {
+    height: $logoSize;
+    width: $logoSize;
+    background: url('../assets/instagram_logo.png') no-repeat;
+    background-size: 100%;
+  }
+  &__title {
+    font-size: 2em;
+    font-weight: bold;
+    padding-left: 15px;
+    font-family: $avenirFont, sans-serif;
+    color: white;
+    text-transform: inherit;
+    text-align: center;
+  }
+  &__error-login {
+    margin: 10px 0;
+    padding-left: 30px;
+    font-size: 1.2em;
+    border-radius: 6px;
+    background-color: transparent;
+  }
+}
+
+@media screen and (max-width: 229px) {
+  .main-title { font-size: 1.2em; }
+  .authentication__title { font-size: 0.8em; padding: 0; }
+  .authentication-form { padding: 20px; }
+  .authentication__select_page { font-size: 9px; }
+}
+
+@media screen and (min-width: 230px) and (max-width: 319px) {
+  .main-title { font-size: 2em; }
+  .authentication__title { font-size: 1.2em; padding: 0; }
+  .authentication-form { padding: 20px; }
+}
+
+@media screen and (min-width: 320px) and (max-width: 599px) {
+  .main-title { font-size: 2.3em; }
+  .authentication__title { padding: 0; font-size: 1.5em; }
+  .authentication-form { padding: 30px; }
+}
+
+@media (min-width: 600px) and (max-width: 959px) {
+  .authentication__title { padding: 0; }
+  .authentication-form { padding: 30px; }
+}
