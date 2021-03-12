@@ -16,7 +16,7 @@
     "@mdi/font": "^2.3.54",
     "@websanova/vue-auth": "^2.21.10-beta",
     "echarts": "^4.0.4",
-    "jspdf": "^1.4.1",
+    "jspdf": "^2.3.1",
     "vee-validate": "^2.0.9",
     "vue": "^2.5.2",
     "vue-echarts": "^3.0.7",
